@@ -27,6 +27,8 @@ pkgs.mkShell rec {
     buildInputs = with pkgs;
       hardware_deps ++ [
         git # The program instantly crashes if git is not present, even if everything is already downloaded
+        cacart # fixes the cert issue when using `nix-shell --pure --run "./webui.sh"`
+        wget
         python310
         stdenv.cc.cc.lib
         stdenv.cc
